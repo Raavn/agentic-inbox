@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AccountType {
+  Founder
+  Company
+}
+
+model User {
+  id           String      @id @default(uuid()) @db.Uuid
+  email        String      @unique
+  passwordHash String
+  fullName     String
+  accountType  AccountType @default(Founder)
+  isAdmin      Boolean     @default(false)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @default(now()) @updatedAt
+
+  inboxItems   InboxItem[]
+  invitesSent  Invite[]    @relation("invitesSent")
+}
+
+model InboxItem {
+  id        String   @id @default(uuid()) @db.Uuid
+  title     String
+  body      String   @default("")
+  userId    String   @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+model Invite {
+  id           String      @id @default(uuid()) @db.Uuid
+  token        String      @unique
+  email        String?
+  accountType  AccountType @default(Founder)
+  createdById  String      @db.Uuid
+  usedAt       DateTime?
+  expiresAt    DateTime
+  createdAt    DateTime    @default(now())
+
+  createdBy    User        @relation("invitesSent", fields: [createdById], references: [id])
+
+  @@index([token])
+}

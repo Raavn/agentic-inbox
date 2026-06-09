@@ -1,0 +1,9 @@
+{
+  "name": "Agentic Inbox",
+  "url": "https://YOUR_DEPLOYED_URL",
+  "width": 800,
+  "height": 600,
+  "fullscreen": false,
+  "transparent": false,
+  "identifier": "com.aimeko.agentic-inbox"
+}
