@@ -80,7 +80,7 @@ export default function InboxPage() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
-              className="w-full rounded-xl border border-slate-200 bg-white pl-12 pr-4 py-3 text-base shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+              className="w-full rounded-xl border border-slate-200 bg-white pl-12 pr-4 py-3 text-base shadow-[-5px_6px_22px_-6px_rgba(99,102,241,0.5),5px_6px_22px_-6px_rgba(124,58,237,0.45)] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
             />
           </div>
           <div className="relative">
@@ -90,7 +90,7 @@ export default function InboxPage() {
               value={body}
               onChange={(e) => setBody(e.target.value)}
               rows={6}
-              className="w-full rounded-xl border border-slate-200 bg-white pl-12 pr-4 py-3 text-sm shadow-sm resize-y placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+              className="w-full rounded-xl border border-slate-200 bg-white pl-12 pr-4 py-3 text-sm shadow-[-5px_6px_22px_-6px_rgba(99,102,241,0.5),5px_6px_22px_-6px_rgba(124,58,237,0.45)] resize-y placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
             />
           </div>
           {saveError && <p className="text-red-500 text-sm">{saveError}</p>}
