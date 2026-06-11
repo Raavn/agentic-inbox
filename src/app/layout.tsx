@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900 antialiased">
+      <body className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-slate-50 text-gray-900 antialiased">
         <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
