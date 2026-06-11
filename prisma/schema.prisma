@@ -15,7 +15,7 @@ enum AccountType {
 model User {
   id           String      @id @default(uuid()) @db.Uuid
   email        String      @unique
-  passwordHash String
+  passwordHash String?
   fullName     String
   accountType  AccountType @default(Founder)
   isAdmin      Boolean     @default(false)

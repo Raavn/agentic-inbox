@@ -6,6 +6,6 @@ export default async function Home() {
   if (session?.user?.id) {
     redirect("/inbox");
   } else {
-    redirect("/login");
+    redirect("/auth/signin");
   }
 }

@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   const invite = await prisma.invite.create({
     data: {
       token,
-      email: body.email?.trim() || null,
+      email: body.email?.trim().toLowerCase() || null,
       accountType,
       createdById: session.user.id,
       expiresAt,
