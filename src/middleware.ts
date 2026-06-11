@@ -5,7 +5,7 @@ import type { NextRequest } from "next/server";
 
 const { auth } = NextAuth(authConfig);
 
-const publicPaths = ["/login", "/invite"];
+const publicPaths = ["/auth", "/invite"];
 const exemptPaths = ["/_next", "/favicon.ico", "/api/auth", "/api/ai"];
 
 export default auth(function middleware(req) {
@@ -28,7 +28,7 @@ export default auth(function middleware(req) {
 
   if (!session?.user?.id) {
     return NextResponse.redirect(
-      new URL("/login", (req as NextRequest).url),
+      new URL("/auth/signin", (req as NextRequest).url),
     );
   }
 

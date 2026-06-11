@@ -2,7 +2,8 @@ import type { NextAuthConfig } from "next-auth";
 
 export const authConfig: NextAuthConfig = {
   pages: {
-    signIn: "/login",
+    signIn: "/auth/signin",
+    error: "/auth/error",
   },
   callbacks: {
     async jwt({ token, user }) {

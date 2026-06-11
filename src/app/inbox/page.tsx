@@ -63,7 +63,7 @@ export default function InboxPage() {
       <header className="border-b border-slate-200 bg-white/80 backdrop-blur px-6 py-4 flex items-center justify-between">
         <h1 className="text-lg font-bold tracking-tight">Inbox</h1>
         <button
-          onClick={() => signOut({ callbackUrl: "/login" })}
+          onClick={() => signOut({ callbackUrl: "/auth/signin" })}
           className="text-sm text-slate-500 hover:text-slate-800 transition-colors"
         >
           Sign out
